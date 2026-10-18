@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { QuestionData, TeamState } from '../types/game';
 import { sound } from '../utils/sound';
 import { CheckCircle2, XCircle, AlertTriangle, Sparkles } from 'lucide-react';
+import { QuestionArt3D } from './GameIcons';
 
 interface QuestionModalProps {
   question: QuestionData;
@@ -87,24 +88,14 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
           </div>
         </div>
 
-        {/* Center Illustration VS / Challenge */}
+        {/* Center 3D Illustration VS / Challenge */}
         <div className="flex justify-center my-2 sm:my-3">
           {isChallenge ? (
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center text-3xl sm:text-4xl shadow-inner">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-purple-200 to-indigo-100 border border-purple-300 flex items-center justify-center text-3xl sm:text-4xl shadow-md">
               🎯
             </div>
           ) : (
-            <div className="relative flex items-center justify-center w-28 h-16">
-              <div className="w-10 h-14 bg-gradient-to-t from-sky-600 to-sky-400 rounded-lg shadow-md flex items-center justify-center text-white text-[10px] font-black mr-2 transform -rotate-3">
-                TECH
-              </div>
-              <div className="w-8 h-8 rounded-full bg-rose-600 text-white font-black text-xs flex items-center justify-center z-10 shadow-md">
-                VS
-              </div>
-              <div className="w-10 h-14 bg-gradient-to-t from-amber-600 to-amber-400 rounded-lg shadow-md flex items-center justify-center text-white text-[10px] font-black ml-2 transform rotate-3">
-                CORP
-              </div>
-            </div>
+            <QuestionArt3D className="w-36 h-20 drop-shadow-md" />
           )}
         </div>
 

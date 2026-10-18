@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TeamState } from '../types/game';
-import { Check, Copy, CheckCheck, UserCheck, Play, QrCode } from 'lucide-react';
+import { Check, Copy, CheckCheck, QrCode, Play, UserCheck } from 'lucide-react';
+import { LobbyIllustration3D, CharacterAvatar } from './GameIcons';
 import { sound } from '../utils/sound';
 
 interface LobbyModalProps {
@@ -32,13 +33,9 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/65 backdrop-blur-xs animate-in fade-in duration-200 overflow-y-auto">
       <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col items-center p-5 sm:p-8 text-center animate-in zoom-in-95 duration-200">
-        {/* City trophy illustration */}
-        <div className="my-2">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-tr from-sky-400 via-teal-300 to-amber-200 p-0.5 shadow-md flex items-center justify-center">
-            <div className="w-full h-full bg-white rounded-[22px] flex items-center justify-center text-4xl sm:text-5xl">
-              🏙️
-            </div>
-          </div>
+        {/* City trophy 3D transparent illustration */}
+        <div className="my-2 flex justify-center">
+          <LobbyIllustration3D className="w-36 h-24 sm:w-48 sm:h-28 drop-shadow-md" />
         </div>
 
         {/* Title */}
@@ -85,10 +82,12 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
                 }`}
               >
                 <div className="flex items-center gap-2 truncate">
-                  <span
-                    className="w-3.5 h-3.5 rounded-full shrink-0 shadow-2xs"
-                    style={{ backgroundColor: t.color }}
-                  />
+                  <div
+                    className="w-6 h-6 rounded-full overflow-hidden border-2 shrink-0 shadow-2xs"
+                    style={{ borderColor: t.color, backgroundColor: t.color }}
+                  >
+                    <CharacterAvatar id={t.characterId} className="w-full h-full" />
+                  </div>
                   <span className="font-extrabold text-xs sm:text-sm text-slate-900 truncate">
                     {t.name}
                   </span>

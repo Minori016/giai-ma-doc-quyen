@@ -1,5 +1,5 @@
 import React from 'react';
-import { LogoIcon } from './GameIcons';
+import { LogoIcon, CharacterAvatar } from './GameIcons';
 import { formatTime } from '../game/logic';
 import { TeamState } from '../types/game';
 import { BookOpen, Trophy, HelpCircle, Volume2, VolumeX, QrCode } from 'lucide-react';
@@ -68,10 +68,12 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Team Status Pill */}
         <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-3 py-1 shadow-2xs text-xs sm:text-sm font-semibold">
-          <span
-            className="w-3 h-3 rounded-full shadow-2xs"
-            style={{ backgroundColor: currentTeam.color }}
-          />
+          <div
+            className="w-5 h-5 rounded-full overflow-hidden border shrink-0 shadow-2xs"
+            style={{ borderColor: currentTeam.color, backgroundColor: currentTeam.color }}
+          >
+            <CharacterAvatar id={currentTeam.characterId} className="w-full h-full" />
+          </div>
           <span className="font-bold text-slate-800">{currentTeam.name}</span>
 
           <span className="text-slate-300">|</span>

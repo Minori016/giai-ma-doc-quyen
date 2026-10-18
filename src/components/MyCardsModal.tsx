@@ -91,17 +91,19 @@ export const MyCardsModal: React.FC<MyCardsModalProps> = ({
                   className="relative flex flex-col items-center justify-between p-3 sm:p-4 rounded-2xl bg-amber-50/70 border-2 border-amber-300 text-slate-900 shadow-sm min-h-[120px] sm:min-h-[140px] text-center"
                 >
                   {/* Top-right checkmark */}
-                  <div className="absolute top-2 right-2 w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-xs">
+                  <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-xs z-10">
                     <Check className="w-3.5 h-3.5 stroke-[3]" />
                   </div>
 
-                  {/* Icon */}
-                  <div className="my-auto py-1">
-                    <TileIcon name={card.icon} className="w-8 h-8 sm:w-10 sm:h-10 text-amber-700" />
+                  {/* 3D Embossed Icon */}
+                  <div className="my-auto py-1 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-200/90 to-amber-50 border border-amber-300 flex items-center justify-center shadow-sm">
+                      <TileIcon name={card.icon} className="w-7 h-7 text-amber-800 drop-shadow-xs" />
+                    </div>
                   </div>
 
                   {/* Title */}
-                  <div className="text-xs sm:text-sm font-extrabold leading-snug">
+                  <div className="text-xs sm:text-sm font-extrabold leading-snug text-amber-950">
                     {card.title}
                   </div>
                 </div>

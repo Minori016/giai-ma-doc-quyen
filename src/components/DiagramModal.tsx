@@ -301,7 +301,9 @@ export const DiagramModal: React.FC<DiagramModalProps> = ({
                       : 'border-slate-200 hover:border-teal-300 bg-white text-slate-800 shadow-2xs hover:shadow-xs'
                   }`}
                 >
-                  <TileIcon name={card.icon} className="w-5 h-5 shrink-0" />
+                  <div className="w-7 h-7 rounded-lg bg-teal-50/80 border border-teal-100 flex items-center justify-center shrink-0">
+                    <TileIcon name={card.icon} className="w-4 h-4 text-teal-800" />
+                  </div>
                   <span className="text-xs font-bold leading-tight truncate">
                     {card.title}
                   </span>

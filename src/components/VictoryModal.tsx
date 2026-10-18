@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { TeamState } from '../types/game';
 import { formatTime } from '../game/logic';
 import { Trophy, BarChart3, Home, CheckCircle2 } from 'lucide-react';
+import { VictoryTrophy3D } from './GameIcons';
 import { sound } from '../utils/sound';
 
 interface VictoryModalProps {
@@ -95,11 +96,9 @@ export const VictoryModal: React.FC<VictoryModalProps> = ({
           className="absolute inset-0 w-full h-full pointer-events-none z-10"
         />
 
-        {/* Golden Trophy Artwork */}
-        <div className="relative z-20 my-2">
-          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-tr from-amber-400 via-amber-300 to-yellow-100 flex items-center justify-center shadow-lg border-4 border-amber-200">
-            <Trophy className="w-14 h-14 sm:w-16 sm:h-16 text-amber-700 drop-shadow-md" />
-          </div>
+        {/* 3D Golden Victory Trophy Artwork (Transparent SVG) */}
+        <div className="relative z-20 my-1 flex justify-center">
+          <VictoryTrophy3D className="w-40 h-28 sm:w-52 sm:h-36 drop-shadow-2xl mx-auto" />
         </div>
 
         {/* Title & Rank Banner */}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { TeamState } from '../types/game';
+import { CharacterAvatar } from './GameIcons';
 
 interface FooterProps {
   teams: TeamState[];
@@ -33,11 +34,13 @@ export const Footer: React.FC<FooterProps> = ({
                   : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-700'
               }`}
             >
-              {/* Dot */}
-              <span
-                className="w-3 h-3 rounded-full shrink-0 shadow-2xs"
-                style={{ backgroundColor: team.color }}
-              />
+              {/* Character Avatar thumbnail & Dot */}
+              <div
+                className="w-4 h-4 rounded-full overflow-hidden border shrink-0 shadow-2xs"
+                style={{ borderColor: team.color, backgroundColor: team.color }}
+              >
+                <CharacterAvatar id={team.characterId} className="w-full h-full" />
+              </div>
               <span className="truncate">{team.name}</span>
 
               {/* Status indicators */}

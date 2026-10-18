@@ -1,386 +1,727 @@
 import React from 'react';
 
-export function LogoIcon({ className = 'w-7 h-7' }: { className?: string }) {
+/**
+ * 3D Isometric Gold Bar Chart Logo on transparent background
+ */
+export function LogoIcon({ className = 'w-8 h-8' }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className={className} viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="goldGrad1" x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id="goldTop1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FDE68A" />
+          <stop offset="100%" stopColor="#F59E0B" />
+        </linearGradient>
+        <linearGradient id="goldFront1" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#F59E0B" />
           <stop offset="100%" stopColor="#D97706" />
         </linearGradient>
-        <linearGradient id="goldGrad2" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#FBBF24" />
-          <stop offset="100%" stopColor="#B45309" />
+        <linearGradient id="goldSide1" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#B45309" />
+          <stop offset="100%" stopColor="#78350F" />
         </linearGradient>
+        <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#D97706" floodOpacity="0.3" />
+        </filter>
       </defs>
-      {/* 3D isometric bar chart */}
-      <path d="M6 34V24L12 20V30L6 34Z" fill="url(#goldGrad1)" />
-      <path d="M12 20L17 23V33L12 30V20Z" fill="#92400E" />
-      <path d="M6 24L11 21L17 23L12 20L6 24Z" fill="#FCD34D" />
+      <g filter="url(#logoGlow)">
+        {/* Bar 1 (Short) */}
+        <polygon points="6,26 12,22 18,25 12,29" fill="url(#goldTop1)" />
+        <polygon points="6,26 12,29 12,38 6,35" fill="url(#goldFront1)" />
+        <polygon points="12,29 18,25 18,34 12,38" fill="url(#goldSide1)" />
 
-      <path d="M15 34V16L22 12V28L15 34Z" fill="url(#goldGrad1)" />
-      <path d="M22 12L28 15V31L22 28V12Z" fill="#92400E" />
-      <path d="M15 16L21 13L28 15L22 12L15 16Z" fill="#FDE68A" />
+        {/* Bar 2 (Medium) */}
+        <polygon points="15,18 22,13 29,17 22,22" fill="url(#goldTop1)" />
+        <polygon points="15,18 22,22 22,38 15,34" fill="url(#goldFront1)" />
+        <polygon points="22,22 29,17 29,33 22,38" fill="url(#goldSide1)" />
 
-      <path d="M26 34V8L34 4V26L26 34Z" fill="url(#goldGrad2)" />
-      <path d="M34 4L38 7V28L34 26V4Z" fill="#78350F" />
-      <path d="M26 8L31 5L38 7L34 4L26 8Z" fill="#FEF3C7" />
+        {/* Bar 3 (Tall) */}
+        <polygon points="26,10 34,5 41,9 33,14" fill="url(#goldTop1)" />
+        <polygon points="26,10 33,14 33,38 26,34" fill="url(#goldFront1)" />
+        <polygon points="33,14 41,9 41,33 33,38" fill="url(#goldSide1)" />
+      </g>
     </svg>
   );
 }
 
+/**
+ * High-definition 3D Isometric transparent SVG icons for every board tile
+ */
 export function TileIcon({ name, className = 'w-6 h-6' }: { name: string; className?: string }) {
   switch (name) {
     case 'flag':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" fill="#047857" fillOpacity="0.2" />
-          <line x1="4" y1="22" x2="4" y2="15" />
-          <line x1="4" y1="3" x2="4" y2="15" />
-          <rect x="7" y="5" width="2" height="2" fill="#047857" />
-          <rect x="11" y="7" width="2" height="2" fill="#047857" />
-          <rect x="15" y="5" width="2" height="2" fill="#047857" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="flagGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#10B981" />
+              <stop offset="100%" stopColor="#047857" />
+            </linearGradient>
+          </defs>
+          {/* Pole */}
+          <rect x="5" y="4" width="3" height="22" rx="1.5" fill="#475569" />
+          <circle cx="6.5" cy="4" r="2.5" fill="#F59E0B" />
+          {/* Waving 3D Checkered Flag */}
+          <path d="M8 5C14 4 15 9 22 7V17C15 19 14 14 8 15V5Z" fill="url(#flagGrad)" />
+          {/* Checkered pattern inside */}
+          <rect x="10" y="7" width="3" height="3" fill="#FFFFFF" fillOpacity="0.85" />
+          <rect x="16" y="8" width="3" height="3" fill="#FFFFFF" fillOpacity="0.85" />
+          <rect x="13" y="11.5" width="3" height="3" fill="#FFFFFF" fillOpacity="0.85" />
+          <rect x="19" y="10.5" width="2" height="3" fill="#FFFFFF" fillOpacity="0.85" />
         </svg>
       );
+
     case 'coins':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2">
-          <ellipse cx="12" cy="7" rx="8" ry="3.5" fill="#FEF3C7" />
-          <path d="M4 7v5c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5V7" />
-          <path d="M4 12v5c0 1.93 3.58 3.5 8 3.5s8-1.57 8-3.5v-5" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="coinGrad1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#FDE68A" />
+              <stop offset="100%" stopColor="#D97706" />
+            </linearGradient>
+            <linearGradient id="coinGrad2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#F59E0B" />
+              <stop offset="100%" stopColor="#B45309" />
+            </linearGradient>
+          </defs>
+          {/* Stack 1 */}
+          <ellipse cx="14" cy="9" rx="9" ry="3.5" fill="url(#coinGrad1)" stroke="#B45309" strokeWidth="1" />
+          <path d="M5 9V14C5 16 9 17.5 14 17.5C19 17.5 23 16 23 14V9" fill="url(#coinGrad2)" stroke="#B45309" strokeWidth="1" />
+          <ellipse cx="14" cy="14" rx="9" ry="3.5" fill="url(#coinGrad1)" stroke="#B45309" strokeWidth="1" />
+          <path d="M5 14V19C5 21 9 22.5 14 22.5C19 22.5 23 21 23 19V14" fill="url(#coinGrad2)" stroke="#B45309" strokeWidth="1" />
+          <ellipse cx="14" cy="19" rx="9" ry="3.5" fill="url(#coinGrad1)" stroke="#B45309" strokeWidth="1" />
+          {/* Coin emblem */}
+          <circle cx="14" cy="9" r="4" fill="none" stroke="#B45309" strokeWidth="0.8" strokeDasharray="1 1" />
+          <text x="14" y="11" textAnchor="middle" fontSize="6" fontWeight="bold" fill="#78350F">$</text>
         </svg>
       );
+
     case 'coffee':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#0D9488" strokeWidth="2">
-          <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" fill="#CCFBF1" fillOpacity="0.4" />
-          <line x1="6" y1="1" x2="6" y2="4" strokeLinecap="round" />
-          <line x1="10" y1="1" x2="10" y2="4" strokeLinecap="round" />
-          <line x1="14" y1="1" x2="14" y2="4" strokeLinecap="round" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="coffeeGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#14B8A6" />
+              <stop offset="100%" stopColor="#0F766E" />
+            </linearGradient>
+          </defs>
+          {/* Steam */}
+          <path d="M9 4C9 3 10 2 11 2C12 2 13 3 13 4C13 5 12 6 11 6" stroke="#99F6E4" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M15 4C15 3 16 2 17 2C18 2 19 3 19 4C19 5 18 6 17 6" stroke="#99F6E4" strokeWidth="1.5" strokeLinecap="round" />
+          {/* Mug body */}
+          <path d="M6 9H20V19C20 22 17 24 13 24C9 24 6 22 6 19V9Z" fill="url(#coffeeGrad)" />
+          {/* Handle */}
+          <path d="M20 11C23 11 24 13 24 15C24 17 23 19 20 19" stroke="#0F766E" strokeWidth="2.5" strokeLinecap="round" />
+          {/* Saucer */}
+          <ellipse cx="13" cy="24" rx="10" ry="2" fill="#0D9488" fillOpacity="0.4" />
         </svg>
       );
+
     case 'factory':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#B45309" strokeWidth="2">
-          <path d="M2 20h20" />
-          <path d="M4 20V9l5 4V9l5 4V4h6v16" fill="#FEF3C7" fillOpacity="0.5" />
-          <line x1="16" y1="8" x2="16.01" y2="8" />
-          <line x1="16" y1="12" x2="16.01" y2="12" />
-          <line x1="16" y1="16" x2="16.01" y2="16" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="factoryGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#F59E0B" />
+              <stop offset="100%" stopColor="#B45309" />
+            </linearGradient>
+          </defs>
+          {/* Smokestack smoke */}
+          <circle cx="8" cy="4" r="1.5" fill="#CBD5E1" />
+          <circle cx="10" cy="2" r="1.8" fill="#E2E8F0" />
+          {/* Sawtooth roof factory */}
+          <polygon points="4,24 4,14 10,18 10,14 16,18 16,10 24,10 24,24" fill="url(#factoryGrad)" />
+          {/* Windows */}
+          <rect x="18" y="13" width="3" height="3" rx="0.5" fill="#FEF3C7" />
+          <rect x="18" y="18" width="3" height="3" rx="0.5" fill="#FEF3C7" />
+          <rect x="12" y="18" width="2.5" height="3" rx="0.5" fill="#FEF3C7" />
+          <rect x="6" y="18" width="2.5" height="3" rx="0.5" fill="#FEF3C7" />
+          {/* Ground bar */}
+          <rect x="2" y="24" width="24" height="2" rx="1" fill="#78350F" />
         </svg>
       );
+
     case 'chart':
     case 'chartUp':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#0284C7" strokeWidth="2">
-          <path d="M3 3v18h18" />
-          <path d="M18 9l-5 5-4-4-5 5" />
-          <polyline points="14 9 18 9 18 13" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="chartGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#38BDF8" />
+              <stop offset="100%" stopColor="#0284C7" />
+            </linearGradient>
+          </defs>
+          <rect x="3" y="23" width="22" height="2" rx="1" fill="#64748B" />
+          {/* Ascending bars */}
+          <rect x="5" y="17" width="3.5" height="6" rx="1" fill="#94A3B8" />
+          <rect x="10.5" y="13" width="3.5" height="10" rx="1" fill="#38BDF8" />
+          <rect x="16" y="9" width="3.5" height="14" rx="1" fill="#0284C7" />
+          <rect x="21.5" y="5" width="3.5" height="18" rx="1" fill="url(#chartGrad)" />
+          {/* Trend line with arrow */}
+          <path d="M4 16L11 11L17 7L24 3" stroke="#F59E0B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <polygon points="25,2 20,4 23,7" fill="#F59E0B" />
         </svg>
       );
+
     case 'lightbulb':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#2563EB" strokeWidth="2">
-          <path d="M9 18h6" />
-          <path d="M10 22h4" />
-          <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" fill="#DBEAFE" fillOpacity="0.5" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="bulbGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#FDE047" />
+              <stop offset="100%" stopColor="#EAB308" />
+            </linearGradient>
+          </defs>
+          <circle cx="14" cy="11" r="7" fill="url(#bulbGrad)" />
+          <path d="M10 16C10.5 18 12 19 14 19C16 19 17.5 18 18 16" fill="url(#bulbGrad)" />
+          {/* Base screw */}
+          <rect x="11.5" y="19" width="5" height="2" rx="0.5" fill="#94A3B8" />
+          <rect x="12" y="21.5" width="4" height="2" rx="0.5" fill="#64748B" />
+          <circle cx="14" cy="24" r="1.5" fill="#475569" />
+          {/* Filament */}
+          <path d="M12 11L13 9L15 9L16 11" stroke="#B45309" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+          {/* Glow rays */}
+          <line x1="14" y1="1" x2="14" y2="3" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="6" y1="4" x2="7.5" y2="5.5" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="22" y1="4" x2="20.5" y2="5.5" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       );
+
     case 'skyscrapers':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#92400E" strokeWidth="2">
-          <rect x="4" y="6" width="6" height="15" rx="1" fill="#FEF3C7" fillOpacity="0.5" />
-          <rect x="14" y="2" width="6" height="19" rx="1" fill="#FDE68A" fillOpacity="0.5" />
-          <line x1="7" y1="10" x2="7.01" y2="10" />
-          <line x1="7" y1="14" x2="7.01" y2="14" />
-          <line x1="17" y1="6" x2="17.01" y2="6" />
-          <line x1="17" y1="10" x2="17.01" y2="10" />
-          <line x1="17" y1="14" x2="17.01" y2="14" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="towerGrad1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#F59E0B" />
+              <stop offset="100%" stopColor="#B45309" />
+            </linearGradient>
+            <linearGradient id="towerGrad2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#FBBF24" />
+              <stop offset="100%" stopColor="#D97706" />
+            </linearGradient>
+          </defs>
+          {/* Left Tower */}
+          <rect x="4" y="8" width="8" height="16" rx="1.5" fill="url(#towerGrad1)" />
+          <line x1="6" y1="11" x2="10" y2="11" stroke="#FEF3C7" strokeWidth="1" strokeLinecap="round" />
+          <line x1="6" y1="14" x2="10" y2="14" stroke="#FEF3C7" strokeWidth="1" strokeLinecap="round" />
+          <line x1="6" y1="17" x2="10" y2="17" stroke="#FEF3C7" strokeWidth="1" strokeLinecap="round" />
+          <line x1="6" y1="20" x2="10" y2="20" stroke="#FEF3C7" strokeWidth="1" strokeLinecap="round" />
+          {/* Right Tower (Taller) */}
+          <rect x="14" y="4" width="10" height="20" rx="1.5" fill="url(#towerGrad2)" />
+          {/* Spire */}
+          <line x1="19" y1="1" x2="19" y2="4" stroke="#D97706" strokeWidth="1.5" />
+          <line x1="17" y1="7" x2="21" y2="7" stroke="#FEF3C7" strokeWidth="1" strokeLinecap="round" />
+          <line x1="17" y1="10" x2="21" y2="10" stroke="#FEF3C7" strokeWidth="1" strokeLinecap="round" />
+          <line x1="17" y1="13" x2="21" y2="13" stroke="#FEF3C7" strokeWidth="1" strokeLinecap="round" />
+          <line x1="17" y1="16" x2="21" y2="16" stroke="#FEF3C7" strokeWidth="1" strokeLinecap="round" />
+          <line x1="17" y1="19" x2="21" y2="19" stroke="#FEF3C7" strokeWidth="1" strokeLinecap="round" />
         </svg>
       );
+
     case 'apple':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="1.8">
-          <path d="M12 20.94c1.88 0 2.92-1.12 4.44-1.12 1.54 0 2.44 1.1 4.34 1.1 1.95 0 3.72-1.92 4.22-3.87-3.48-1.54-3.76-6.42-.51-8.13-1.63-2.18-4.2-2.39-5.11-2.39-2.18 0-3.77 1.25-4.88 1.25-1.15 0-2.5-1.25-4.48-1.25C6.88 6.53 4 8.79 4 13.06c0 3.86 2.37 7.88 4.6 7.88.94 0 1.96-1.12 3.4-1.12z" fill="#1F2937" fillOpacity="0.1" />
-          <path d="M12 6.5c.8-1.07 1.34-2.55 1.19-4.04-1.32.06-2.84.89-3.73 1.96-.78.93-1.42 2.44-1.24 3.88 1.47.11 2.98-.73 3.78-1.8z" fill="#1F2937" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="appleGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#475569" />
+              <stop offset="100%" stopColor="#0F172A" />
+            </linearGradient>
+          </defs>
+          {/* Leaf */}
+          <path d="M14 6C15 4 17 3 18 3C18 5 16 7 14 7C14 6.7 14 6.3 14 6Z" fill="#334155" />
+          {/* Apple shape with bite */}
+          <path d="M14 8C12 8 10 9 9 10.5C7.5 12.5 7.5 16.5 9.5 20C10.5 22 12 24 14 24C15.5 24 16 23 17.5 23C19 23 19.5 24 21 24C23 24 24.5 22 25.5 20C21.5 18 21.5 13 25.5 11.5C24.5 9.5 22.5 8 20.5 8C19 8 18 9 17 9C16 9 15 8 14 8Z" fill="url(#appleGrad)" />
         </svg>
       );
+
     case 'handshake':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2">
-          <path d="m11 17 2 2a1 1 0 0 0 1.42 0l4.58-4.58a1 1 0 0 0 0-1.42l-2.29-2.29a1 1 0 0 0-1.42 0L13.5 12.5" />
-          <path d="m13 7-2-2a1 1 0 0 0-1.42 0L5 9.58a1 1 0 0 0 0 1.42l2.29 2.29a1 1 0 0 0 1.42 0L10.5 11.5" />
-          <path d="m2 14 5.5-5.5" />
-          <path d="m22 10-5.5 5.5" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="hsGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#F59E0B" />
+              <stop offset="100%" stopColor="#D97706" />
+            </linearGradient>
+          </defs>
+          <path d="M4 11L9 6L14 11L11 14L8 11L4 15V11Z" fill="#3B82F6" />
+          <path d="M24 11L19 6L14 11L17 14L20 11L24 15V11Z" fill="#F59E0B" />
+          <circle cx="14" cy="14" r="5" fill="url(#hsGrad)" />
+          <path d="M11 13L13 15L17 11" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
+
     case 'barrier':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#9333EA" strokeWidth="2">
-          <rect x="2" y="8" width="20" height="4" rx="1" fill="#F3E8FF" />
-          <path d="M6 12v8M18 12v8" />
-          <line x1="5" y1="8" x2="8" y2="12" stroke="#9333EA" />
-          <line x1="11" y1="8" x2="14" y2="12" stroke="#9333EA" />
-          <line x1="17" y1="8" x2="20" y2="12" stroke="#9333EA" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          {/* Barrier crossbeam with hazard stripes */}
+          <rect x="2" y="9" width="24" height="6" rx="1.5" fill="#9333EA" />
+          <path d="M5 9L3 15H6L8 9H5Z" fill="#FDE047" />
+          <path d="M11 9L9 15H12L14 9H11Z" fill="#FDE047" />
+          <path d="M17 9L15 15H18L20 9H17Z" fill="#FDE047" />
+          <path d="M23 9L21 15H24L25 9H23Z" fill="#FDE047" />
+          {/* Posts */}
+          <rect x="5" y="15" width="3" height="10" fill="#475569" />
+          <rect x="20" y="15" width="3" height="10" fill="#475569" />
         </svg>
       );
+
     case 'swords':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#DC2626" strokeWidth="2">
-          <polyline points="14.5 17.5 3 6 6 3 17.5 14.5" />
-          <line x1="13" y1="19" x2="19" y2="13" />
-          <line x1="16" y1="16" x2="20" y2="20" />
-          <line x1="19" y1="21" x2="21" y2="19" />
-          <polyline points="9.5 17.5 21 6 18 3 6.5 14.5" />
-          <line x1="11" y1="19" x2="5" y2="13" />
-          <line x1="8" y1="16" x2="4" y2="20" />
-          <line x1="5" y1="21" x2="3" y2="19" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <path d="M6 22L17 11L19 13L8 24Z" fill="#DC2626" />
+          <path d="M22 22L11 11L9 13L20 24Z" fill="#E11D48" />
+          {/* Blades */}
+          <line x1="17" y1="11" x2="23" y2="5" stroke="#94A3B8" strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="11" y1="11" x2="5" y2="5" stroke="#94A3B8" strokeWidth="2.5" strokeLinecap="round" />
+          {/* Sparks */}
+          <circle cx="14" cy="11" r="2.5" fill="#FDE047" />
         </svg>
       );
+
     case 'tree':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#047857" strokeWidth="2">
-          <rect x="9" y="3" width="6" height="4" rx="1" fill="#A7F3D0" />
-          <rect x="3" y="17" width="5" height="4" rx="1" fill="#A7F3D0" />
-          <rect x="10" y="17" width="4" height="4" rx="1" fill="#A7F3D0" />
-          <rect x="16" y="17" width="5" height="4" rx="1" fill="#A7F3D0" />
-          <path d="M12 7v5M5 17v-3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3M12 12v5" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="orgGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#10B981" />
+              <stop offset="100%" stopColor="#047857" />
+            </linearGradient>
+          </defs>
+          {/* Top Leader Node */}
+          <rect x="10" y="3" width="8" height="5" rx="1.5" fill="url(#orgGrad)" />
+          {/* Branches */}
+          <line x1="14" y1="8" x2="14" y2="14" stroke="#047857" strokeWidth="1.5" />
+          <line x1="5" y1="14" x2="23" y2="14" stroke="#047857" strokeWidth="1.5" />
+          <line x1="5" y1="14" x2="5" y2="18" stroke="#047857" strokeWidth="1.5" />
+          <line x1="14" y1="14" x2="14" y2="18" stroke="#047857" strokeWidth="1.5" />
+          <line x1="23" y1="14" x2="23" y2="18" stroke="#047857" strokeWidth="1.5" />
+          {/* Bottom Nodes */}
+          <rect x="2" y="18" width="6" height="5" rx="1" fill="#34D399" />
+          <rect x="11" y="18" width="6" height="5" rx="1" fill="#34D399" />
+          <rect x="20" y="18" width="6" height="5" rx="1" fill="#34D399" />
         </svg>
       );
-    case 'refresh':
-      return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#DB2777" strokeWidth="2">
-          <path d="M3 12a9 9 0 0 1 15-6.7L21 8" />
-          <path d="M21 3v5h-5" />
-          <path d="M21 12a9 9 0 0 1-15 6.7L3 16" />
-          <path d="M3 21v-5h5" />
-        </svg>
-      );
-    case 'appstore':
-      return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#0284C7" strokeWidth="2">
-          <circle cx="12" cy="12" r="9" fill="#E0F2FE" />
-          <path d="m15.5 17.5-3.5-6.5-3.5 6.5" />
-          <path d="M8 14h8" />
-          <path d="M12 5v2" />
-        </svg>
-      );
+
     case 'knight':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#1E293B" strokeWidth="2">
-          <path d="M19 22H5v-2c0-1.5 1-2.5 2-3l1-2c-.5-1-1-2.5-1-4 0-4 3-7 7-7 2.5 0 4 1.5 4 3 0 1-1 2-1 3l1 2c1 .5 2 1.5 2 3v2z" fill="#E2E8F0" />
-          <circle cx="13" cy="9" r="1.2" fill="#1E293B" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="knightGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#F59E0B" />
+              <stop offset="100%" stopColor="#92400E" />
+            </linearGradient>
+          </defs>
+          {/* Chess Knight */}
+          <path d="M7 23H21V21C21 20 19 19 19 18C19 15 20 14 18 10C17 8 16 5 14 4C13.5 3.5 12 4 12 5C11 5 10 5.5 9 7C7 9.5 7 12 8 13C8 14 7 15 6 16C5 17 6 19 7 20V23Z" fill="url(#knightGrad)" />
+          {/* Mane and eye */}
+          <circle cx="11" cy="7.5" r="1" fill="#FEF3C7" />
+          <path d="M14 7C16 8 17 10 17 13" stroke="#FEF3C7" strokeWidth="1" strokeLinecap="round" />
         </svg>
       );
-    case 'fileSearch':
-      return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#9333EA" strokeWidth="2">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="#F3E8FF" />
-          <polyline points="14 2 14 8 20 8" />
-          <circle cx="11.5" cy="14.5" r="2.5" />
-          <path d="m13.5 16.5 2.5 2.5" />
-        </svg>
-      );
-    case 'tagDown':
-      return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2">
-          <path d="m20.59 13.41-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" fill="#FEF3C7" />
-          <line x1="7" y1="7" x2="7.01" y2="7" />
-          <path d="M12 11v4M10 13l2 2 2-2" stroke="#DC2626" />
-        </svg>
-      );
-    case 'arrowLeft':
-      return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#DC2626" strokeWidth="2">
-          <path d="M19 12H5M12 19l-7-7 7-7" />
-        </svg>
-      );
-    case 'target':
-      return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#DB2777" strokeWidth="2">
-          <circle cx="12" cy="12" r="9" />
-          <circle cx="12" cy="12" r="5" fill="#FCE7F3" />
-          <circle cx="12" cy="12" r="2" fill="#DB2777" />
-        </svg>
-      );
+
     case 'scale':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2">
-          <path d="M12 3v18M6 8h12" />
-          <path d="m6 8-3 6h6l-3-6z" fill="#FEF3C7" />
-          <path d="m18 8-3 6h6l-3-6z" fill="#FEF3C7" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="scaleGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#FBBF24" />
+              <stop offset="100%" stopColor="#B45309" />
+            </linearGradient>
+          </defs>
+          <line x1="14" y1="4" x2="14" y2="23" stroke="#78350F" strokeWidth="2" strokeLinecap="round" />
+          <line x1="6" y1="8" x2="22" y2="8" stroke="#78350F" strokeWidth="2" strokeLinecap="round" />
+          <circle cx="14" cy="4" r="2" fill="#F59E0B" />
+          {/* Left Pan */}
+          <path d="M3 15C3 18 9 18 9 15L6 8L3 15Z" fill="url(#scaleGrad)" />
+          {/* Right Pan */}
+          <path d="M19 15C19 18 25 18 25 15L22 8L19 15Z" fill="url(#scaleGrad)" />
+          {/* Base */}
+          <rect x="9" y="22" width="10" height="3" rx="1.5" fill="#78350F" />
         </svg>
       );
-    case 'gears':
+
+    case 'target':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="2">
-          <circle cx="12" cy="12" r="3" />
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="11" fill="#FEE2E2" stroke="#EF4444" strokeWidth="2" />
+          <circle cx="14" cy="14" r="7" fill="#FFFFFF" stroke="#EF4444" strokeWidth="2" />
+          <circle cx="14" cy="14" r="3" fill="#DC2626" />
         </svg>
       );
+
+    case 'refresh':
+      return (
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="refGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#EC4899" />
+              <stop offset="100%" stopColor="#BE185D" />
+            </linearGradient>
+          </defs>
+          <path d="M14 5C8.5 5 4 9.5 4 15C4 18 5.5 20.5 8 22" stroke="url(#refGrad)" strokeWidth="3" strokeLinecap="round" />
+          <path d="M14 25C19.5 25 24 20.5 24 15C24 12 22.5 9.5 20 8" stroke="url(#refGrad)" strokeWidth="3" strokeLinecap="round" />
+          <polygon points="12,2 17,5 12,8" fill="#BE185D" />
+          <polygon points="16,28 11,25 16,22" fill="#BE185D" />
+        </svg>
+      );
+
     case 'boxing':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2">
-          <path d="M4 14v4a2 2 0 0 0 2 2h2v-6H4z" fill="#FDE68A" />
-          <path d="M8 8a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v6h-10V8z" fill="#FBBF24" />
-          <path d="M6 10h2" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="gloveGrad1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#F59E0B" />
+              <stop offset="100%" stopColor="#B45309" />
+            </linearGradient>
+            <linearGradient id="gloveGrad2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#FBBF24" />
+              <stop offset="100%" stopColor="#D97706" />
+            </linearGradient>
+          </defs>
+          {/* Left Glove */}
+          <path d="M5 19L9 11C10 9 13 9 14 11C15 13 14 15 12 16L10 19L5 19Z" fill="url(#gloveGrad1)" />
+          {/* Right Glove */}
+          <path d="M23 19L19 11C18 9 15 9 14 11C13 13 14 15 16 16L18 19L23 19Z" fill="url(#gloveGrad2)" />
+          {/* Clash Impact Sparks */}
+          <polygon points="14,6 15,10 18,9 15,12 18,14 14,13 11,15 13,12 10,9 13,10" fill="#EF4444" />
         </svg>
       );
+
     case 'chat':
       return (
-        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#0284C7" strokeWidth="2">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="#E0F2FE" />
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <path d="M5 8C5 5.5 8 4 12 4C16 4 19 5.5 19 8C19 10.5 16 12 12 12C10.5 12 9.5 11.5 8.5 11L5 12.5L5.5 9.5C5.2 9 5 8.5 5 8Z" fill="#38BDF8" />
+          <path d="M12 13C12.5 13 13 13 13.5 13C17.5 13 21 14.5 21 17C21 19.5 17.5 21 13.5 21C12 21 11 20.5 10 20L6.5 21.5L7 18.5C6.5 18 6 17.5 6 17C6 14.8 8.8 13.2 12 13Z" fill="#0284C7" />
         </svg>
       );
+
+    case 'fileSearch':
+      return (
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <rect x="5" y="3" width="14" height="20" rx="2" fill="#F3E8FF" stroke="#9333EA" strokeWidth="1.5" />
+          <line x1="8" y1="7" x2="14" y2="7" stroke="#C084FC" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="8" y1="11" x2="14" y2="11" stroke="#C084FC" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="8" y1="15" x2="11" y2="15" stroke="#C084FC" strokeWidth="1.5" strokeLinecap="round" />
+          {/* Magnifier */}
+          <circle cx="18" cy="18" r="5" fill="#FAF5FF" stroke="#7E22CE" strokeWidth="2" />
+          <line x1="21.5" y1="21.5" x2="25" y2="25" stroke="#7E22CE" strokeWidth="2.5" strokeLinecap="round" />
+        </svg>
+      );
+
+    case 'tagDown':
+    case 'tagUp':
+      return (
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <path d="M4 14L14 4H22V12L12 22L4 14Z" fill="#FDE047" stroke="#CA8A04" strokeWidth="1.5" />
+          <circle cx="18" cy="8" r="2" fill="#713F12" />
+          {name === 'tagDown' ? (
+            <path d="M9 13L13 17M13 17V12M13 17H8" stroke="#DC2626" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          ) : (
+            <path d="M9 17L13 13M13 13V18M13 13H8" stroke="#16A34A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          )}
+        </svg>
+      );
+
     default:
       return (
         <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <circle cx="12" cy="12" r="9" />
+          <path d="M12 8v8M8 12h8" />
         </svg>
       );
   }
 }
 
+/**
+ * Authentic character colors based on design cards
+ */
+const CHARACTER_BG_COLORS: Record<number, string> = {
+  1: '#E0F2FE', // Nhóm 1 - Xanh dương
+  2: '#FFE4E6', // Nhóm 2 - Đỏ hồng
+  3: '#F3E8FF', // Nhóm 3 - Tím
+  4: '#FFEDD5', // Nhóm 4 - Cam
+  5: '#CCFBF1', // Nhóm 5 - Xanh ngọc
+  6: '#FEF3C7', // Nhóm 6 - Nâu / Vàng đất
+};
+
+/**
+ * Character Avatar cropped directly from authentic assets with 100% transparent background
+ * Used in Pawns, Header, Footer, Leaderboard, and Lobby
+ */
 export function CharacterAvatar({
   id,
-  className = 'w-16 h-16',
+  className = 'w-8 h-8',
+  showBg = true,
+}: {
+  id: number;
+  className?: string;
+  showBg?: boolean;
+}) {
+  const safeId = id >= 1 && id <= 6 ? id : 1;
+  const bgColor = CHARACTER_BG_COLORS[safeId] || '#F1F5F9';
+
+  return (
+    <div
+      className={`relative inline-flex items-center justify-center overflow-hidden rounded-full ${className} ${
+        showBg ? 'shadow-2xs border border-white/60' : ''
+      }`}
+      style={{ backgroundColor: showBg ? bgColor : 'transparent' }}
+    >
+      <img
+        src={`/assets/char_avatar_${safeId}.png`}
+        alt={`Nhân vật ${safeId}`}
+        className="w-full h-full object-contain select-none"
+        loading="eager"
+        draggable={false}
+      />
+    </div>
+  );
+}
+
+/**
+ * Full-Body Character Illustration cropped directly from authentic assets with 100% transparent background
+ * Used in CharacterSelectModal, Modals & Detail screens
+ */
+export function CharacterFullFigure({
+  id,
+  className = 'w-full h-full',
 }: {
   id: number;
   className?: string;
 }) {
-  switch (id) {
-    case 1:
-      // Male student with backpack & tablet in blue theme
-      return (
-        <svg className={className} viewBox="0 0 100 130" fill="none">
-          <rect width="100" height="130" rx="12" fill="#E0F2FE" />
-          {/* Hair & head */}
-          <ellipse cx="50" cy="38" rx="16" ry="18" fill="#FCD34D" />
-          <path d="M34 32c0-12 7-18 16-18s16 6 16 18c-4-4-9-6-16-6s-12 2-16 6z" fill="#1E293B" />
-          <circle cx="45" cy="38" r="2" fill="#1E293B" />
-          <circle cx="55" cy="38" r="2" fill="#1E293B" />
-          <path d="M47 45c1.5 1.5 4.5 1.5 6 0" stroke="#1E293B" strokeWidth="1.5" strokeLinecap="round" />
-          {/* Body: Blue jacket & white shirt */}
-          <path d="M30 65l10-10h20l10 10v45H30V65z" fill="#0284C7" />
-          <polygon points="46,55 54,55 50,68" fill="#FFFFFF" />
-          {/* Backpack strap & tablet */}
-          <line x1="33" y1="58" x2="38" y2="90" stroke="#0369A1" strokeWidth="3" />
-          <rect x="42" y="70" width="22" height="16" rx="2" fill="#334155" stroke="#94A3B8" strokeWidth="1" />
-          {/* Pants */}
-          <rect x="36" y="105" width="12" height="25" fill="#1E293B" />
-          <rect x="52" y="105" width="12" height="25" fill="#1E293B" />
-        </svg>
-      );
-    case 2:
-      // Female executive in red suit
-      return (
-        <svg className={className} viewBox="0 0 100 130" fill="none">
-          <rect width="100" height="130" rx="12" fill="#FFE4E6" />
-          {/* Hair & head */}
-          <ellipse cx="50" cy="36" rx="15" ry="17" fill="#FDE047" />
-          <path d="M33 32c0-12 8-18 17-18s17 6 17 18c0 14-4 22-7 24-2-8-4-10-10-10s-8 2-10 10c-3-2-7-10-7-24z" fill="#451A03" />
-          <circle cx="45" cy="37" r="1.8" fill="#1E293B" />
-          <circle cx="55" cy="37" r="1.8" fill="#1E293B" />
-          <path d="M48 44c1 1 3 1 4 0" stroke="#BE123C" strokeWidth="1.5" strokeLinecap="round" />
-          {/* Red blazer */}
-          <path d="M32 62l8-8h20l8 8v42H32V62z" fill="#E11D48" />
-          <polygon points="46,54 54,54 50,68" fill="#FFFFFF" />
-          {/* Handbag */}
-          <rect x="64" y="75" width="10" height="12" rx="2" fill="#881337" />
-          {/* Pants */}
-          <rect x="37" y="102" width="11" height="28" fill="#1E293B" />
-          <rect x="52" y="102" width="11" height="28" fill="#1E293B" />
-        </svg>
-      );
-    case 3:
-      // Female researcher in purple suit with glasses
-      return (
-        <svg className={className} viewBox="0 0 100 130" fill="none">
-          <rect width="100" height="130" rx="12" fill="#F3E8FF" />
-          {/* Hair & head */}
-          <ellipse cx="50" cy="37" rx="15" ry="17" fill="#FDE047" />
-          <path d="M31 34c0-14 8-20 19-20s19 6 19 20c0 18-5 28-9 30-2-12-5-14-10-14s-8 2-10 14c-4-2-9-12-9-30z" fill="#3B0764" />
-          {/* Glasses */}
-          <circle cx="44" cy="37" r="4.5" stroke="#7E22CE" strokeWidth="1.5" fill="none" />
-          <circle cx="56" cy="37" r="4.5" stroke="#7E22CE" strokeWidth="1.5" fill="none" />
-          <line x1="48.5" y1="37" x2="51.5" y2="37" stroke="#7E22CE" strokeWidth="1.5" />
-          {/* Purple suit */}
-          <path d="M32 63l9-8h18l9 8v44H32V63z" fill="#9333EA" />
-          <polygon points="46,55 54,55 50,68" fill="#FFFFFF" />
-          {/* Notebook */}
-          <rect x="42" y="72" width="18" height="20" rx="2" fill="#581C87" />
-          <line x1="45" y1="76" x2="55" y2="76" stroke="#C084FC" strokeWidth="1" />
-          <line x1="45" y1="80" x2="55" y2="80" stroke="#C084FC" strokeWidth="1" />
-          {/* Pants */}
-          <rect x="36" y="105" width="12" height="25" fill="#6B21A8" />
-          <rect x="52" y="105" width="12" height="25" fill="#6B21A8" />
-        </svg>
-      );
-    case 4:
-      // Youth in orange hoodie and cargo pants
-      return (
-        <svg className={className} viewBox="0 0 100 130" fill="none">
-          <rect width="100" height="130" rx="12" fill="#FFEDD5" />
-          {/* Hair & head */}
-          <ellipse cx="50" cy="38" rx="15" ry="17" fill="#FCD34D" />
-          <path d="M33 32c0-12 8-18 17-18s17 6 17 18c-4-4-9-5-17-5s-13 1-17 5z" fill="#1C1917" />
-          <circle cx="45" cy="38" r="2" fill="#1C1917" />
-          <circle cx="55" cy="38" r="2" fill="#1C1917" />
-          <path d="M47 45c1.5 1 4.5 1 6 0" stroke="#1C1917" strokeWidth="1.5" strokeLinecap="round" />
-          {/* Orange hoodie */}
-          <path d="M30 65l10-11h20l10 11v42H30V65z" fill="#EA580C" />
-          <circle cx="50" cy="62" r="5" fill="#C2410C" />
-          {/* Cargo pants */}
-          <rect x="35" y="103" width="13" height="27" fill="#334155" />
-          <rect x="52" y="103" width="13" height="27" fill="#334155" />
-          <rect x="33" y="108" width="5" height="8" rx="1" fill="#475569" />
-          <rect x="62" y="108" width="5" height="8" rx="1" fill="#475569" />
-        </svg>
-      );
-    case 5:
-      // Female tech pro in green shirt with laptop
-      return (
-        <svg className={className} viewBox="0 0 100 130" fill="none">
-          <rect width="100" height="130" rx="12" fill="#CCFBF1" />
-          {/* Hair & head */}
-          <ellipse cx="50" cy="36" rx="15" ry="17" fill="#FDE047" />
-          <path d="M32 30c0-12 8-18 18-18s18 6 18 18c0 16-4 24-8 26-2-10-5-12-10-12s-8 2-10 12c-4-2-8-10-8-26z" fill="#1E293B" />
-          <circle cx="45" cy="37" r="1.8" fill="#1E293B" />
-          <circle cx="55" cy="37" r="1.8" fill="#1E293B" />
-          <path d="M48 44c1 1 3 1 4 0" stroke="#0F766E" strokeWidth="1.5" strokeLinecap="round" />
-          {/* Green button shirt */}
-          <path d="M32 62l9-8h18l9 8v42H32V62z" fill="#0D9488" />
-          <line x1="50" y1="56" x2="50" y2="100" stroke="#115E59" strokeWidth="1.5" />
-          {/* Laptop */}
-          <rect x="44" y="70" width="22" height="15" rx="2" fill="#CBD5E1" stroke="#64748B" strokeWidth="1" />
-          {/* Pants */}
-          <rect x="36" y="103" width="12" height="27" fill="#0F172A" />
-          <rect x="52" y="103" width="12" height="27" fill="#0F172A" />
-        </svg>
-      );
-    case 6:
-    default:
-      // Economist in gold/brown vest with blueprints
-      return (
-        <svg className={className} viewBox="0 0 100 130" fill="none">
-          <rect width="100" height="130" rx="12" fill="#FEF3C7" />
-          {/* Hair & head */}
-          <ellipse cx="50" cy="38" rx="15" ry="17" fill="#FCD34D" />
-          <path d="M34 32c0-12 7-18 16-18s16 6 16 18c-4-4-9-5-16-5s-12 1-16 5z" fill="#3E2723" />
-          <circle cx="45" cy="38" r="2" fill="#1C1917" />
-          <circle cx="55" cy="38" r="2" fill="#1C1917" />
-          <path d="M47 45c1.5 1 4.5 1 6 0" stroke="#1C1917" strokeWidth="1.5" strokeLinecap="round" />
-          {/* Vest and tie */}
-          <path d="M31 63l9-8h20l9 8v44H31V63z" fill="#B45309" />
-          <polygon points="46,55 54,55 50,70" fill="#FFFFFF" />
-          <polygon points="48.5,58 51.5,58 50,68" fill="#78350F" />
-          {/* Rolled architectural blueprints */}
-          <rect x="62" y="68" width="8" height="26" rx="3" transform="rotate(-20 62 68)" fill="#E2E8F0" stroke="#0284C7" strokeWidth="1" />
-          {/* Pants */}
-          <rect x="36" y="105" width="12" height="25" fill="#451A03" />
-          <rect x="52" y="105" width="12" height="25" fill="#451A03" />
-        </svg>
-      );
-  }
+  const safeId = id >= 1 && id <= 6 ? id : 1;
+  return (
+    <div className={`relative inline-flex items-center justify-center ${className}`}>
+      <img
+        src={`/assets/char_full_${safeId}.png`}
+        alt={`Nhân vật toàn thân ${safeId}`}
+        className="w-full h-full object-contain select-none filter drop-shadow-sm"
+        loading="eager"
+        draggable={false}
+      />
+    </div>
+  );
+}
+
+/**
+ * 3D Golden Championship Victory Trophy with Laurel Wreath (100% transparent background)
+ */
+export function VictoryTrophy3D({ className = 'w-48 h-36' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="vicCupGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FEF08A" />
+          <stop offset="50%" stopColor="#F59E0B" />
+          <stop offset="100%" stopColor="#B45309" />
+        </linearGradient>
+        <linearGradient id="vicGoldTrim" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FFFBEB" />
+          <stop offset="100%" stopColor="#D97706" />
+        </linearGradient>
+        <filter id="vicGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#F59E0B" floodOpacity="0.4" />
+        </filter>
+      </defs>
+
+      <g filter="url(#vicGlow)">
+        {/* Laurel Wreath Left */}
+        <path d="M48 30C40 40 38 60 48 76C44 72 40 60 42 46C44 38 46 32 48 30Z" fill="#FBBF24" />
+        <circle cx="43" cy="38" r="3" fill="#FCD34D" />
+        <circle cx="40" cy="52" r="3.5" fill="#FCD34D" />
+        <circle cx="43" cy="66" r="3" fill="#FCD34D" />
+
+        {/* Laurel Wreath Right */}
+        <path d="M112 30C120 40 122 60 112 76C116 72 120 60 118 46C116 38 114 32 112 30Z" fill="#FBBF24" />
+        <circle cx="117" cy="38" r="3" fill="#FCD34D" />
+        <circle cx="120" cy="52" r="3.5" fill="#FCD34D" />
+        <circle cx="117" cy="66" r="3" fill="#FCD34D" />
+
+        {/* Cup Handles */}
+        <path d="M56 34C44 34 42 54 56 62" stroke="url(#vicCupGrad)" strokeWidth="6" strokeLinecap="round" fill="none" />
+        <path d="M104 34C116 34 118 54 104 62" stroke="url(#vicCupGrad)" strokeWidth="6" strokeLinecap="round" fill="none" />
+
+        {/* Main Cup Body */}
+        <path d="M54 22H106V48C106 66 94 76 80 76C66 76 54 66 54 48V22Z" fill="url(#vicCupGrad)" />
+        {/* Top Rim */}
+        <ellipse cx="80" cy="22" rx="26" ry="5" fill="url(#vicGoldTrim)" />
+
+        {/* Star Badge on Cup */}
+        <polygon points="80,36 83,44 91,44 85,49 87,57 80,52 73,57 75,49 69,44 77,44" fill="#FFFFFF" fillOpacity="0.95" />
+
+        {/* Stem & Pedestal */}
+        <path d="M74 76H86V88H74V76Z" fill="url(#vicCupGrad)" />
+        <polygon points="68,88 92,88 96,104 64,104" fill="url(#vicGoldTrim)" />
+        <rect x="58" y="104" width="44" height="8" rx="2" fill="#78350F" />
+        <rect x="62" y="106" width="36" height="4" rx="1" fill="#B45309" />
+      </g>
+    </svg>
+  );
+}
+
+/**
+ * 3D Golden Leaderboard Trophy on 100% transparent background
+ */
+export function LeaderboardTrophy3D({ className = 'w-16 h-16' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="lbGold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FDE68A" />
+          <stop offset="60%" stopColor="#F59E0B" />
+          <stop offset="100%" stopColor="#B45309" />
+        </linearGradient>
+      </defs>
+      {/* Handles */}
+      <path d="M16 18C10 18 10 32 18 36" stroke="url(#lbGold)" strokeWidth="3.5" strokeLinecap="round" fill="none" />
+      <path d="M48 18C54 18 54 32 46 36" stroke="url(#lbGold)" strokeWidth="3.5" strokeLinecap="round" fill="none" />
+      {/* Cup */}
+      <path d="M18 12H46V28C46 38 38 44 32 44C26 44 18 38 18 28V12Z" fill="url(#lbGold)" />
+      <ellipse cx="32" cy="12" rx="14" ry="3" fill="#FEF08A" />
+      <polygon points="32,20 34,25 39,25 35,28 37,33 32,30 27,33 29,28 25,25 30,25" fill="#FFFFFF" />
+      {/* Stem & Base */}
+      <rect x="29" y="44" width="6" height="8" fill="url(#lbGold)" />
+      <polygon points="24,52 40,52 42,60 22,60" fill="#B45309" />
+    </svg>
+  );
+}
+
+/**
+ * 3D Isometric Mini Smart City Trophy for Lobby on 100% transparent background
+ */
+export function LobbyIllustration3D({ className = 'w-40 h-28' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="lobbyPlaza" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#34D399" />
+          <stop offset="100%" stopColor="#059669" />
+        </linearGradient>
+        <linearGradient id="lobbyBldgBlue" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#38BDF8" />
+          <stop offset="100%" stopColor="#0369A1" />
+        </linearGradient>
+        <linearGradient id="lobbyBldgTeal" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#2DD4BF" />
+          <stop offset="100%" stopColor="#0F766E" />
+        </linearGradient>
+        <linearGradient id="lobbyTrophyGlobe" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FEF08A" />
+          <stop offset="60%" stopColor="#F59E0B" />
+          <stop offset="100%" stopColor="#B45309" />
+        </linearGradient>
+      </defs>
+
+      {/* Isometric Island Plaza Base */}
+      <polygon points="80,18 140,50 80,82 20,50" fill="url(#lobbyPlaza)" />
+      <polygon points="20,50 80,82 80,94 20,62" fill="#047857" />
+      <polygon points="80,82 140,50 140,62 80,94" fill="#065F46" />
+
+      {/* Left Modern Skyscraper */}
+      <polygon points="40,32 54,25 54,58 40,65" fill="url(#lobbyBldgBlue)" />
+      <polygon points="54,25 66,32 66,65 54,58" fill="#0284C7" />
+      <polygon points="40,32 54,25 66,32 52,39" fill="#7DD3FC" />
+
+      {/* Right Modern Skyscraper */}
+      <polygon points="98,30 110,23 110,60 98,67" fill="url(#lobbyBldgTeal)" />
+      <polygon points="110,23 122,30 122,67 110,60" fill="#0D9488" />
+      <polygon points="98,30 110,23 122,30 110,37" fill="#5EEAD4" />
+
+      {/* Central 3D Golden Globe Championship Trophy */}
+      {/* Pedestal */}
+      <path d="M66 52V56C66 58.8 72.3 61 80 61C87.7 61 94 58.8 94 56V52" fill="#CBD5E1" />
+      <ellipse cx="80" cy="52" rx="14" ry="4.5" fill="#FEF3C7" stroke="#F59E0B" strokeWidth="1" />
+      {/* Globe */}
+      <circle cx="80" cy="38" r="13" fill="url(#lobbyTrophyGlobe)" />
+      {/* Latitude / Longitude lines */}
+      <ellipse cx="80" cy="38" rx="13" ry="5" fill="none" stroke="#FFFFFF" strokeWidth="1.2" strokeOpacity="0.8" />
+      <ellipse cx="80" cy="38" rx="6" ry="13" fill="none" stroke="#FFFFFF" strokeWidth="1.2" strokeOpacity="0.8" />
+
+      {/* Park Trees */}
+      <circle cx="32" cy="50" r="5" fill="#10B981" />
+      <circle cx="128" cy="48" r="5" fill="#10B981" />
+      <circle cx="80" cy="74" r="4.5" fill="#10B981" />
+    </svg>
+  );
+}
+
+/**
+ * 3D Isometric Question Rivalry Towers (Blue Tech vs Red Corp) on 100% transparent background
+ */
+export function QuestionArt3D({ className = 'w-36 h-20' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 140 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="qBlueTower" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#38BDF8" />
+          <stop offset="100%" stopColor="#0284C7" />
+        </linearGradient>
+        <linearGradient id="qRedTower" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FB7185" />
+          <stop offset="100%" stopColor="#E11D48" />
+        </linearGradient>
+        <linearGradient id="qVsShield" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FEF08A" />
+          <stop offset="100%" stopColor="#F59E0B" />
+        </linearGradient>
+      </defs>
+
+      {/* Blue Corporate Skyscraper (Left) */}
+      <polygon points="20,24 38,15 38,66 20,74" fill="url(#qBlueTower)" />
+      <polygon points="38,15 54,23 54,74 38,66" fill="#0369A1" />
+      <polygon points="20,24 38,15 54,23 36,32" fill="#7DD3FC" />
+      {/* Windows */}
+      <line x1="26" y1="36" x2="32" y2="33" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.7" />
+      <line x1="26" y1="44" x2="32" y2="41" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.7" />
+      <line x1="26" y1="52" x2="32" y2="49" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.7" />
+
+      {/* Red Corporate Skyscraper (Right) */}
+      <polygon points="86,23 102,15 102,66 86,74" fill="url(#qRedTower)" />
+      <polygon points="102,15 120,24 120,74 102,66" fill="#BE123C" />
+      <polygon points="86,23 102,15 120,24 104,32" fill="#FDA4AF" />
+      {/* Windows */}
+      <line x1="108" y1="33" x2="114" y2="36" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.7" />
+      <line x1="108" y1="41" x2="114" y2="44" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.7" />
+      <line x1="108" y1="49" x2="114" y2="52" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.7" />
+
+      {/* Center 3D VS Shield & Lightning */}
+      <circle cx="70" cy="38" r="14" fill="url(#qVsShield)" stroke="#D97706" strokeWidth="2" />
+      <text x="70" y="43" textAnchor="middle" fontSize="11" fontWeight="900" fill="#78350F" letterSpacing="0.5">VS</text>
+      {/* Lightning spark */}
+      <polygon points="68,14 74,24 70,24 72,30 66,21 70,21" fill="#F59E0B" />
+    </svg>
+  );
+}
+
+/**
+ * 3D Broken Vintage Alarm Clock for DefeatModal on 100% transparent background
+ */
+export function DefeatClock3D({ className = 'w-24 h-24' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="clockCase" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#EF4444" />
+          <stop offset="100%" stopColor="#991B1B" />
+        </linearGradient>
+      </defs>
+      {/* Top Twin Bells */}
+      <ellipse cx="24" cy="20" rx="9" ry="5" transform="rotate(-30 24 20)" fill="url(#clockCase)" />
+      <ellipse cx="56" cy="20" rx="9" ry="5" transform="rotate(30 56 20)" fill="url(#clockCase)" />
+      <rect x="36" y="14" width="8" height="6" rx="2" fill="#64748B" />
+      {/* Feet */}
+      <polygon points="20,68 28,68 24,76" fill="#475569" />
+      <polygon points="52,68 60,68 56,76" fill="#475569" />
+      {/* Clock Body */}
+      <circle cx="40" cy="46" r="26" fill="url(#clockCase)" />
+      <circle cx="40" cy="46" r="21" fill="#FEF2F2" />
+      {/* Cracked Glass Lines */}
+      <path d="M26 36L38 46L34 56" stroke="#94A3B8" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M38 46L54 40" stroke="#94A3B8" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M44 48L52 58" stroke="#94A3B8" strokeWidth="1.5" strokeLinecap="round" />
+      {/* Hands stopped at 00:00 (12:00) */}
+      <line x1="40" y1="46" x2="40" y2="30" stroke="#1E293B" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="40" y1="46" x2="40" y2="34" stroke="#DC2626" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="40" cy="46" r="2.5" fill="#1E293B" />
+    </svg>
+  );
 }

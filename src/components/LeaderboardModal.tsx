@@ -1,7 +1,8 @@
 import React from 'react';
 import { TeamState } from '../types/game';
 import { computeLeaderboard } from '../game/logic';
-import { Trophy, Info, X } from 'lucide-react';
+import { Info, X } from 'lucide-react';
+import { LeaderboardTrophy3D, CharacterAvatar } from './GameIcons';
 import { sound } from '../utils/sound';
 
 interface LeaderboardModalProps {
@@ -29,10 +30,8 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
         </button>
 
         {/* Trophy & Title */}
-        <div className="text-center mb-4">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 shadow-xs mb-2">
-            <Trophy className="w-8 h-8" />
-          </div>
+        <div className="text-center mb-3">
+          <LeaderboardTrophy3D className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-1 drop-shadow-md" />
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 uppercase tracking-tight">
             BẢNG XẾP HẠNG
           </h2>
@@ -82,11 +81,13 @@ export const LeaderboardModal: React.FC<LeaderboardModalProps> = ({
 
                     {/* Team Column */}
                     <td className="py-2 px-1 sm:px-3">
-                      <div className="flex items-center gap-1 sm:gap-2">
-                        <span
-                          className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded-full shrink-0 shadow-2xs"
-                          style={{ backgroundColor: team.color }}
-                        />
+                      <div className="flex items-center gap-1.5 sm:gap-2">
+                        <div
+                          className="w-5 h-5 sm:w-6 sm:h-6 rounded-full overflow-hidden border shrink-0 shadow-2xs"
+                          style={{ borderColor: team.color, backgroundColor: team.color }}
+                        >
+                          <CharacterAvatar id={team.characterId} className="w-full h-full" />
+                        </div>
                         <span className="font-extrabold text-slate-900 truncate max-w-[70px] sm:max-w-none">{team.name}</span>
                       </div>
                     </td>

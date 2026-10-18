@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CHARACTERS } from '../data/gameData';
-import { CharacterAvatar } from './GameIcons';
+import { CharacterAvatar, CharacterFullFigure } from './GameIcons';
 import { TeamState } from '../types/game';
 import { Check, ChevronRight, RotateCcw } from 'lucide-react';
 import { sound } from '../utils/sound';
@@ -85,9 +85,9 @@ export const CharacterSelectModal: React.FC<CharacterSelectModalProps> = ({
                   {char.id.toString().padStart(2, '0')}
                 </div>
 
-                {/* Avatar Artwork */}
-                <div className="my-2 flex justify-center">
-                  <CharacterAvatar id={char.id} className="w-20 h-24 sm:w-24 sm:h-28 drop-shadow-sm" />
+                {/* 3D Transparent Character Artwork */}
+                <div className="my-1 flex justify-center items-center h-28 sm:h-36 w-full overflow-hidden">
+                  <CharacterFullFigure id={char.id} className="h-full max-h-36 object-contain drop-shadow-md hover:scale-105 transition-transform" />
                 </div>
 
                 {/* Character Name Label */}

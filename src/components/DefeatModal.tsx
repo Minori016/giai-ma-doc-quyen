@@ -1,6 +1,7 @@
 import React from 'react';
 import { TeamState } from '../types/game';
 import { AlertCircle, BarChart3, Home } from 'lucide-react';
+import { DefeatClock3D } from './GameIcons';
 import { sound } from '../utils/sound';
 
 interface DefeatModalProps {
@@ -67,9 +68,10 @@ export const DefeatModal: React.FC<DefeatModalProps> = ({
           </div>
         </div>
 
-        {/* Digital Time / Broken Clock Visual */}
-        <div className="my-2 flex flex-col items-center">
-          <div className="bg-slate-900 border-2 border-red-500/60 text-red-500 font-mono font-black text-3xl sm:text-4xl px-6 py-2 rounded-2xl shadow-inner tracking-widest animate-pulse">
+        {/* 3D Broken Vintage Alarm Clock & Digital 00:00 */}
+        <div className="my-2 flex flex-col items-center gap-1.5">
+          <DefeatClock3D className="w-20 h-20 drop-shadow-lg" />
+          <div className="bg-slate-900 border-2 border-red-500/60 text-red-500 font-mono font-black text-2xl sm:text-3xl px-6 py-1.5 rounded-2xl shadow-inner tracking-widest animate-pulse">
             00:00
           </div>
         </div>
