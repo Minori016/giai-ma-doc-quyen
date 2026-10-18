@@ -56,7 +56,7 @@ export const BOARD_TILES: BoardTile[] = [
   {
     number: 1,
     title: 'Xuất phát',
-    subtitle: 'Khởi hành',
+    subtitle: '',
     type: 'start',
     colorType: 'green',
     icon: 'flag',
@@ -79,7 +79,7 @@ export const BOARD_TILES: BoardTile[] = [
   {
     number: 3,
     title: 'Giải lao',
-    subtitle: 'Thư giãn',
+    subtitle: '',
     type: 'rest',
     colorType: 'green',
     icon: 'coffee',
@@ -125,7 +125,7 @@ export const BOARD_TILES: BoardTile[] = [
   {
     number: 7,
     title: 'Giải lao',
-    subtitle: 'Thư giãn',
+    subtitle: '',
     type: 'rest',
     colorType: 'green',
     icon: 'coffee',
@@ -162,7 +162,7 @@ export const BOARD_TILES: BoardTile[] = [
   {
     number: 10,
     title: 'Giải lao',
-    subtitle: 'Thư giãn',
+    subtitle: '',
     type: 'rest',
     colorType: 'green',
     icon: 'coffee',
@@ -197,7 +197,7 @@ export const BOARD_TILES: BoardTile[] = [
   {
     number: 13,
     title: 'Cạnh tranh gay gắt',
-    subtitle: 'Lùi 1-6 ô',
+    subtitle: 'Lùi 1 - 6 ô',
     type: 'step_back',
     colorType: 'red',
     icon: 'swords',
@@ -208,7 +208,7 @@ export const BOARD_TILES: BoardTile[] = [
   {
     number: 14,
     title: 'Giải lao',
-    subtitle: 'Thư giãn',
+    subtitle: '',
     type: 'rest',
     colorType: 'green',
     icon: 'coffee',
@@ -256,7 +256,7 @@ export const BOARD_TILES: BoardTile[] = [
   {
     number: 18,
     title: 'Giải lao',
-    subtitle: 'Thư giãn',
+    subtitle: '',
     type: 'rest',
     colorType: 'green',
     icon: 'coffee',
@@ -290,7 +290,7 @@ export const BOARD_TILES: BoardTile[] = [
   {
     number: 21,
     title: 'Giải lao',
-    subtitle: 'Thư giãn',
+    subtitle: '',
     type: 'rest',
     colorType: 'green',
     icon: 'coffee',
@@ -325,7 +325,7 @@ export const BOARD_TILES: BoardTile[] = [
   {
     number: 24,
     title: 'Giải lao',
-    subtitle: 'Thư giãn',
+    subtitle: '',
     type: 'rest',
     colorType: 'green',
     icon: 'coffee',
@@ -350,7 +350,7 @@ export const BOARD_TILES: BoardTile[] = [
   {
     number: 26,
     title: 'Chi phí chuyển đổi',
-    subtitle: 'Lùi 1-6 ô',
+    subtitle: 'Lùi 1 - 6 ô',
     type: 'step_back',
     colorType: 'red',
     icon: 'arrowLeft',
@@ -361,7 +361,7 @@ export const BOARD_TILES: BoardTile[] = [
   {
     number: 27,
     title: 'Giải lao',
-    subtitle: 'Thư giãn',
+    subtitle: '',
     type: 'rest',
     colorType: 'green',
     icon: 'coffee',
@@ -407,7 +407,7 @@ export const BOARD_TILES: BoardTile[] = [
   {
     number: 31,
     title: 'Giải lao',
-    subtitle: 'Thư giãn',
+    subtitle: '',
     type: 'rest',
     colorType: 'green',
     icon: 'coffee',
@@ -418,7 +418,7 @@ export const BOARD_TILES: BoardTile[] = [
   {
     number: 32,
     title: 'Tiếp vòng',
-    subtitle: 'Quay về 01',
+    subtitle: '',
     type: 'loop',
     colorType: 'pink',
     icon: 'refresh',

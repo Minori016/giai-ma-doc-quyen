@@ -3,43 +3,16 @@ import React from 'react';
 /**
  * 3D Isometric Gold Bar Chart Logo on transparent background
  */
-export function LogoIcon({ className = 'w-8 h-8' }: { className?: string }) {
+export function LogoIcon({ className = 'w-9 h-9' }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="goldTop1" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#FDE68A" />
-          <stop offset="100%" stopColor="#F59E0B" />
-        </linearGradient>
-        <linearGradient id="goldFront1" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#F59E0B" />
-          <stop offset="100%" stopColor="#D97706" />
-        </linearGradient>
-        <linearGradient id="goldSide1" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#B45309" />
-          <stop offset="100%" stopColor="#78350F" />
-        </linearGradient>
-        <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#D97706" floodOpacity="0.3" />
-        </filter>
-      </defs>
-      <g filter="url(#logoGlow)">
-        {/* Bar 1 (Short) */}
-        <polygon points="6,26 12,22 18,25 12,29" fill="url(#goldTop1)" />
-        <polygon points="6,26 12,29 12,38 6,35" fill="url(#goldFront1)" />
-        <polygon points="12,29 18,25 18,34 12,38" fill="url(#goldSide1)" />
-
-        {/* Bar 2 (Medium) */}
-        <polygon points="15,18 22,13 29,17 22,22" fill="url(#goldTop1)" />
-        <polygon points="15,18 22,22 22,38 15,34" fill="url(#goldFront1)" />
-        <polygon points="22,22 29,17 29,33 22,38" fill="url(#goldSide1)" />
-
-        {/* Bar 3 (Tall) */}
-        <polygon points="26,10 34,5 41,9 33,14" fill="url(#goldTop1)" />
-        <polygon points="26,10 33,14 33,38 26,34" fill="url(#goldFront1)" />
-        <polygon points="33,14 41,9 41,33 33,38" fill="url(#goldSide1)" />
-      </g>
-    </svg>
+    <div className={`relative inline-flex items-center justify-center shrink-0 ${className}`}>
+      <img
+        src="/assets/logo_3d.jpg"
+        alt="Logo Giải Mã Độc Quyền"
+        className="w-full h-full object-contain mix-blend-multiply select-none"
+        draggable={false}
+      />
+    </div>
   );
 }
 
@@ -418,6 +391,33 @@ export function TileIcon({ name, className = 'w-6 h-6' }: { name: string; classN
           ) : (
             <path d="M9 17L13 13M13 13V18M13 13H8" stroke="#16A34A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           )}
+        </svg>
+      );
+
+    case 'appstore':
+      return (
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          <defs>
+            <linearGradient id="appStoreGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#38BDF8" />
+              <stop offset="100%" stopColor="#0284C7" />
+            </linearGradient>
+          </defs>
+          <rect x="3" y="3" width="22" height="22" rx="5" fill="url(#appStoreGrad)" />
+          {/* Stylized App Store 'A' */}
+          <path d="M14 6.5L8.5 19.5H11.5L12.7 16.5H15.3L16.5 19.5H19.5L14 6.5Z" fill="#FFFFFF" />
+          <polygon points="14,10 12.8,14 15.2,14" fill="url(#appStoreGrad)" />
+        </svg>
+      );
+
+    case 'arrowLeft':
+    case 'arrowsHorizontal':
+      return (
+        <svg className={className} viewBox="0 0 28 28" fill="none">
+          {/* Red double arrows */}
+          <path d="M6 14H22" stroke="#EF4444" strokeWidth="3" strokeLinecap="round" />
+          <path d="M10 9L5 14L10 19" stroke="#EF4444" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M18 9L23 14L18 19" stroke="#EF4444" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
 
