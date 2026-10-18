@@ -1,0 +1,6 @@
+{
+  "name": "Giải Mã Độc Quyền",
+  "description": "Trò chơi cờ bàn giáo dục: Gieo xúc xắc, trả lời câu hỏi, thu thập 8 thẻ kiến thức và giải mã sơ đồ hình thành tổ chức độc quyền.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
