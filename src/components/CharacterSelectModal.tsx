@@ -86,8 +86,8 @@ export const CharacterSelectModal: React.FC<CharacterSelectModalProps> = ({
                 </div>
 
                 {/* 3D Transparent Character Artwork */}
-                <div className="my-1 flex justify-center items-center h-28 sm:h-36 w-full overflow-hidden">
-                  <CharacterFullFigure id={char.id} className="h-full max-h-36 object-contain drop-shadow-md hover:scale-105 transition-transform" />
+                <div className="my-1 flex justify-center items-center h-32 sm:h-40 w-full overflow-hidden">
+                  <CharacterFullFigure id={char.id} className="h-full max-h-40 object-contain drop-shadow-md hover:scale-105 transition-transform" />
                 </div>
 
                 {/* Character Name Label */}
