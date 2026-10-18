@@ -165,7 +165,7 @@ export const CharacterSelectModal: React.FC<CharacterSelectModalProps> = ({
         </div>
 
         {/* 6 Character Cards Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3 my-1">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3 mt-1 mb-5">
           {CHARACTERS.map((char) => {
             const isSelected = char.id === selectedCharId;
             const theme = CARD_THEMES[char.id] || CARD_THEMES[1];
@@ -177,16 +177,17 @@ export const CharacterSelectModal: React.FC<CharacterSelectModalProps> = ({
                   sound.playClick();
                   setSelectedCharId(char.id);
                 }}
-                className={`relative h-[250px] sm:h-[285px] rounded-[18px] border-2 flex flex-col justify-between overflow-hidden cursor-pointer transition-all select-none ${
+                className={`relative h-[250px] sm:h-[285px] rounded-[18px] border-2 flex flex-col justify-between cursor-pointer transition-all select-none ${
                   isSelected
                     ? 'border-[#10B981] ring-3 ring-[#10B981]/30 shadow-[0_0_18px_rgba(16,185,129,0.35)] scale-[1.02] z-10'
                     : `${theme.borderColor} hover:border-slate-300 hover:scale-[1.01] hover:shadow-sm`
                 }`}
               >
-                {/* Background Gradient & Themed Watermark */}
-                <div className={`absolute inset-0 bg-gradient-to-b ${theme.bgGradient}`} />
-                <div className="absolute inset-0 pointer-events-none opacity-85">
-                  {theme.watermark}
+                {/* Background Gradient & Themed Watermark with rounded corners */}
+                <div className={`absolute inset-0 bg-gradient-to-b ${theme.bgGradient} rounded-[15px] overflow-hidden pointer-events-none`}>
+                  <div className="absolute inset-0 opacity-85">
+                    {theme.watermark}
+                  </div>
                 </div>
 
                 {/* Character Number Badge at Top-Left */}
@@ -213,12 +214,13 @@ export const CharacterSelectModal: React.FC<CharacterSelectModalProps> = ({
                 {/* Bottom Footer Section */}
                 {isSelected ? (
                   /* Selected State: Dark Emerald Bar with White Checkmark Pill */
-                  <div className="w-full bg-gradient-to-b from-[#097560] to-[#044D3F] pt-1.5 pb-2.5 px-1 flex flex-col items-center justify-center relative z-20 rounded-b-[16px]">
-                    <span className="text-white text-xs font-black tracking-tight drop-shadow-xs">
+                  <div className="w-full bg-gradient-to-b from-[#097560] to-[#044D3F] pt-2 pb-3.5 px-1 flex flex-col items-center justify-center relative z-20 rounded-b-[15px]">
+                    <span className="text-white text-xs font-black tracking-tight drop-shadow-xs mb-0.5">
                       {char.name}
                     </span>
-                    <div className="absolute -bottom-2.5 bg-white border border-emerald-400/80 rounded-full px-2.5 py-0.5 flex items-center gap-1 shadow-md shadow-emerald-950/20">
-                      <div className="w-3.5 h-3.5 rounded-full bg-[#0D8A71] flex items-center justify-center">
+                    {/* Floating White Pill with Green Checkmark - Fully visible, not clipped */}
+                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white border-2 border-emerald-400 rounded-full px-2.5 py-0.5 flex items-center gap-1 shadow-md shadow-emerald-950/25 z-30 whitespace-nowrap">
+                      <div className="w-4 h-4 rounded-full bg-[#0D8A71] flex items-center justify-center shrink-0">
                         <Check className="w-2.5 h-2.5 text-white stroke-[3.5]" />
                       </div>
                       <span className="text-[11px] font-black text-[#085C4B]">Đã chọn</span>
